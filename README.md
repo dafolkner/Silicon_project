@@ -2,12 +2,12 @@
 SI of paper "Elastic moduli and thermal conductivity of quantum materials at finite temperature" .
 
 <p align="center">
-<img src="TDEPworkflow.png" width="450">
+<img src="TDEPworkflow.jpg" width="450">
 </p>
    
 This repository is structured as follow:
 
-* PIMD: Input files to perform Path-Integral Molecular Dynamics (PIMD) simulations, using [GPUMD]((https://github.com/brucefan1983/GPUMD).
+* PIMD: Input files to perform Path-Integral Molecular Dynamics (PIMD) simulations, using [GPUMD](https://github.com/brucefan1983/GPUMD).
 
 * TDEP: Input files to extract force constants from temperature depedent effective potentials, using [TDEP](https://tdep-developers.github.io/tdep/)
   
