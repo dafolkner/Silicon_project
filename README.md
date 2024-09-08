@@ -1,4 +1,5 @@
-# Silicon_project
+# PIMD + TDEP + kALDo for bulk silicon
+
 SI of paper "Elastic moduli and thermal conductivity of quantum materials at finite temperature" .
 
 <p align="center">
