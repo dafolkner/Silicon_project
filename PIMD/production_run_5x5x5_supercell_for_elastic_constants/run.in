@@ -1,0 +1,29 @@
+# Initlize velocity with maxwell distribution in 50K
+velocity 50
+
+# Using NEP potential
+potential ./Si_nep.txt
+
+# Equalibrate systems with PIMD with 24 beads
+# 50 50 100 indicates inital and final temperature to 50K with 100 steps temperature coupling
+# 0 100 1000 indicates equlirbate systems with 0 GPa target pressure and 100 GPa elastic constant
+# pressure coupling for 1000 steps  
+ensemble pimd 24 50 50 100 0 100 1000
+
+# Time step for equlibration run is 1 fs for 50000 steps
+time_step 1
+run 50000
+
+# Proceed production runs with TRPMD ensemble with 24 beads
+ensemble trpmd 24
+
+# Time step is 1 fs
+time_step 1
+
+# Dump thermodynamic outputs and xyz trajectory every 100 steps
+# dump both forces and velocity 
+dump_thermo 100
+dump_exyz 100 1 1 1
+
+# Run produciton run for 1000000 steps
+run 1000000
