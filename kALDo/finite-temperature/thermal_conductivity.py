@@ -15,6 +15,17 @@ supercell = [4, 4, 4]
 folder = '.'
 forceconstants = ForceConstants.from_folder(folder=folder, supercell=supercell, format='tdep')
 
+# Compute elastic tensor from
+# Born’s long wave method:
+# M. Born and K. Huang, Dynamical Theory of Crystal Lattices (Oxford University Press, 1954).
+Cij = forceconstants.elastic_prop()
+print("C11: %.1f GPa" %Cij[0, 0, 0, 0])
+print("C12: %.1f GPa" %Cij[0, 0, 1, 1])
+print("C44: %.1f GPa" %Cij[1, 2, 1, 2])
+
+# Derive Bulk modulus for cubic system
+print("Bulk Modulus:  %.1f GPa" %((Cij[0, 0, 0, 0] + 2 * Cij[0, 0, 1, 1])/3))
+
 # Use 12-by-12-by-12 k-grids and 50K for BTE calculation
 kxy = 12
 kz = kxy
@@ -27,6 +38,11 @@ phonons = Phonons(forceconstants=forceconstants,
                   is_classic=False,
                   temperature=temperature,
                   folder='ALD_Si_TDEP')
+
+
+# Plot phonon dispersion and density of states
+plotter.plot_dispersion(phonons,n_k_points=200, is_showing=False)
+plotter.plot_dos(phonons,p_atoms=None, bandwidth=0.05, filename='dos')
 
 # Solve BTE using direct inversion of scattering matrix
 inv_cond_matrix = (Conductivity(phonons=phonons, method='inverse').conductivity.sum(axis=0))
