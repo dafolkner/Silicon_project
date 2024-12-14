@@ -16,4 +16,17 @@ This repository is structured as follow:
 
 * PIMD-traj:xyz files of the PIMD trajectory from GPUMD runs. 
 
-* Suppmental-data: Experimental and simulated results to reproduce figures shown in the manuscript.
+### How to cite
+```bib
+@article{folkner2024elastic,
+  title={Elastic moduli and thermal conductivity of quantum materials at finite temperature},
+  author={Folkner, Dylan A and Chen, Zekun and Barbalinardo, Giuseppe and Knoop, Florian and Donadio, Davide},
+  journal={Journal of Applied Physics},
+  volume={136},
+  number={22},
+  year={2024},
+  publisher={AIP Publishing}
+}
+
+}
+```
