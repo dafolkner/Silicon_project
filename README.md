@@ -27,6 +27,4 @@ This repository is structured as follow:
   year={2024},
   publisher={AIP Publishing}
 }
-
-}
 ```
